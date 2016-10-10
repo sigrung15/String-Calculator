@@ -2,8 +2,9 @@ public class StringCalculator {
 	public static int Add(String n){
 		if(n.isEmpty())
 			return 0;
-		else if(n.length() == 1)
-			return Integer.valueOf(n);
+		String[] numbers = n.split(",");
+		if(numbers.length == 1)
+			return Integer.valueOf(numbers[0]);
 		return 0;
 	}
 	
