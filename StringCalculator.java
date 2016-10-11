@@ -25,5 +25,7 @@ public class StringCalculator {
 		System.out.println("This should print out one number: " + Add(twoNr));
 		twoNr = "122,309";
 		System.out.println("This should print out one number: " + Add(twoNr));
+		String alotOfNr = "122,14,90,35,12,34";
+		System.out.println("This should print out one number: " + Add(alotOfNr));
 	}
 }
