@@ -5,12 +5,7 @@ public class Calculator{
     if(text.equals(""))
       return 0;
     else if(text.contains(",")){
-      String[] numbers = text.split(",");
-      int sum = 0;
-      for(String number : numbers){
-        sum += toInt(number);
-      }
-      return sum;
+      return sum(splitNumbers(text));
     }
     else
       return 1;
@@ -18,5 +13,16 @@ public class Calculator{
 
   private static int toInt(String number){
     return Integer.parseInt(number);
+  }
+
+  private static String[] splitNumbers(String text){
+    return text.split(",|\n");
+  }
+
+  private static int sum(String[] numbers){
+    int sum = 0;
+    for(String number : numbers)
+      sum += toInt(number);
+    return sum;
   }
 }
