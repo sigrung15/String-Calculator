@@ -5,16 +5,20 @@ public class Calculator{
     if(text.equals(""))
       return 0;
     else if(text.contains("-")) {
-      String negatives = "";
-      for(String number : splitNumbers(text))
-        if(toInt(number) < 0)
-          negatives += number + ",";
-      throw new Exception("Negatives not allowed: " + negatives.substring(0, negatives.length() - 1));
+      throw new Exception("Negatives not allowed: " + negativeNumbers(text));
     }
     else if(text.contains(","))
       return sum(splitNumbers(text));
     else
       return 1;
+  }
+
+  private static String negativeNumbers(String text){
+    String negatives = "";
+    for(String number : splitNumbers(text))
+      if(toInt(number) < 0)
+        negatives += number + ",";
+    return negatives.substring(0, negatives.length() - 1);
   }
 
   private static int toInt(String number){
