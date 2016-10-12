@@ -24,4 +24,14 @@ public class CalculatorTest{
   public void testSpacesAndCommas() throws Exception{
     assertEquals(6, Calculator.add("1,2\n3"));
   }
+  @Test
+  public void testNegativeNumbers() throws Exception{
+    try{
+      assertEquals(2, Calculator.add("-1,2"));
+    }
+    catch(Exception e){
+      String exception = "Negatives not allowed: -1";
+      assertEquals(exception, e.getMessage());
+    }
+  }
 }
