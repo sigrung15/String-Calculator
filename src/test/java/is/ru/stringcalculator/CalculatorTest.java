@@ -16,4 +16,8 @@ public class CalculatorTest{
   public void testTwoNumbers() throws Exception{
     assertEquals(3, Calculator.add("1,2"));
   }
+  @Test
+  public void testMultipleNumbers() throws Exception{
+    assertEquals(6, Calculator.add("1,2,3"));
+  }
 }
