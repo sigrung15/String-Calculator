@@ -4,7 +4,7 @@ public class Calculator{
   public static int add(String text) throws Exception{
     if(text.equals(""))
       return 0;
-    else if(text.contains(",")){
+    else if(text.contains(",") || text.contains("\n")){
       return sum(splitNumbers(text));
     }
     else
