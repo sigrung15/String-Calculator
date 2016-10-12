@@ -6,7 +6,7 @@ public class Calculator{
       return 0;
     else if(text.contains("-"))
       throw new Exception("Negatives not allowed: " + negativeNumbers(text));
-    else if(text.contains(","))
+    else if(text.contains(",") || text.contains("\n"))
       return sum(splitNumbers(text));
     else
       return 1;
@@ -25,6 +25,11 @@ public class Calculator{
   }
 
   private static String[] splitNumbers(String text){
+    if(text.startsWith("//")){
+      String delimiter = text.substring(2,3);
+      text = text.substring(4, text.length());
+      return text.split(delimiter);
+    }
     return text.split(",|\n");
   }
 

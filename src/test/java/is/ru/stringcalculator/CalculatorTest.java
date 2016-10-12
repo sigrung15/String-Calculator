@@ -38,5 +38,9 @@ public class CalculatorTest{
   public void testBigNumbers() throws Exception{
     assertEquals(2, Calculator.add("1001,2"));
   }
+  @Test
+  public void testDelimiter() throws Exception{
+    assertEquals(3, Calculator.add("//;\n1;2"));
+  }
 
 }
