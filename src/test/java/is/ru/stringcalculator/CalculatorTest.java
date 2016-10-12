@@ -34,5 +34,9 @@ public class CalculatorTest{
       assertEquals(exception, e.getMessage());
     }
   }
+  @Test
+  public void testBigNumbers() throws Exception{
+    assertEquals(2, Calculator.add("1001,2"));
+  }
 
 }

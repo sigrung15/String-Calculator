@@ -4,9 +4,8 @@ public class Calculator{
   public static int add(String text) throws Exception{
     if(text.equals(""))
       return 0;
-    else if(text.contains("-")) {
+    else if(text.contains("-"))
       throw new Exception("Negatives not allowed: " + negativeNumbers(text));
-    }
     else if(text.contains(","))
       return sum(splitNumbers(text));
     else
@@ -31,8 +30,12 @@ public class Calculator{
 
   private static int sum(String[] numbers){
     int sum = 0;
-    for(String number : numbers)
-      sum += toInt(number);
+    for(String number : numbers){
+      if(toInt(number) > 1000)
+        ;
+      else
+        sum += toInt(number);
+    }
     return sum;
   }
 }
