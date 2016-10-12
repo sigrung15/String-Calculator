@@ -1,9 +1,16 @@
 package is.ru.stringcalculator;
 
 public class Calculator{
-  public static int add(String text){
+  public static int add(String text) throws Exception{
     if(text.equals(""))
       return 0;
+    else if(text.contains("-")) {
+      String negatives = "";
+      for(String number : splitNumbers(text))
+        if(toInt(number) < 0)
+          negatives += number + ",";
+      throw new Exception("Negatives not allowed: " + negatives.substring(0, negatives.length() - 1));
+    }
     else if(text.contains(","))
       return sum(splitNumbers(text));
     else
@@ -15,7 +22,7 @@ public class Calculator{
   }
 
   private static String[] splitNumbers(String text){
-    return text.split(",|\\s+");
+    return text.split(",|\n");
   }
 
   private static int sum(String[] numbers){
