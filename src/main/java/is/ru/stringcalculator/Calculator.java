@@ -4,13 +4,8 @@ public class Calculator{
   public static int add(String text) throws Exception{
     if(text.equals(""))
       return 0;
-    else if(text.contains("-")){
-      String negatives = "";
-      for(String number : splitNumbers(text))
-        if(toInt(number) < 0)
-          negatives += number + ",";
-      throw new Exception("Negatives not allowed: " + negatives.substring(0, negatives.length() - 1));
-    }
+    else if(text.contains("-"))
+      throw new Exception("Negatives not allowed: " + negativeNumbers(text));
     else if(text.contains(",") || text.contains("\n")){
       return sum(splitNumbers(text));
     }
@@ -31,5 +26,13 @@ public class Calculator{
     for(String number : numbers)
       sum += toInt(number);
     return sum;
+  }
+
+  private static String negativeNumbers(String text){
+    String negatives = "";
+    for(String number : splitNumbers(text))
+      if(toInt(number) < 0)
+        negatives += number + ",";
+    return negatives.substring(0, negatives.length() - 1);
   }
 }
