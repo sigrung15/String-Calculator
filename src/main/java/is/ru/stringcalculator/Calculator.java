@@ -23,8 +23,12 @@ public class Calculator{
 
   private static int sum(String[] numbers){
     int sum = 0;
-    for(String number : numbers)
-      sum += toInt(number);
+    for(String number : numbers){
+      if(toInt(number) > 1000)
+        ;
+      else
+        sum += toInt(number);
+    }
     return sum;
   }
 
