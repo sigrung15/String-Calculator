@@ -8,6 +8,8 @@ public class CalculatorTest{
   public void testEmptyString() throws Exception{
     assertEquals(0, Calculator.add(""));
   }
-
-
+  @Test
+  public void testOneNumber() throws Exception{
+    assertEquals(1, Calculator.add("1"));
+  }
 }
